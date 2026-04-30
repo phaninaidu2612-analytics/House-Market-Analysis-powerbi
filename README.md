@@ -1,16 +1,16 @@
 ## Housing Market Analysis Dashboard (Data Source : Google Big Query)
 
-### Dashboard Link
+### Dashboard Link :
 
 https://app.powerbi.com/links/OODDQGpxsK?ctid=06cd4ed5-3b7f-47b0-8ef6-29dee1c5060b&pbi_source=linkShare&bookmarkGuid=af4ab754-663c-4ab7-be76-bbc227ba2de2
 
-### Dashboard Preview
+### Dashboard Preview :
 
 ![page1](https://github.com/user-attachments/assets/77f402f7-eb46-4fc3-b0f8-ced99a12e3f1)
 ![page2](https://github.com/user-attachments/assets/3f8c83a2-8aa6-45aa-bf8f-44cb912ed082)
 ![page3](https://github.com/user-attachments/assets/74f07894-e221-4d63-8169-c5affc070edf)
 ---
-### Problem Statement
+### Problem Statement :
 
 This dashboard is designed to analyze housing market trends using
 transactional and economic data. It helps stakeholders understand: - How
@@ -21,7 +21,7 @@ housing prices change over time
 
 ---
 
-### Dataset Description
+### Dataset Description :
 
 The dataset contains 100,000 records sourced from Google BigQuery, representing housing transactions along with economic indicators.
 
@@ -37,7 +37,7 @@ The dataset contains 100,000 records sourced from Google BigQuery, representing 
 
 ----
 
-### Data Source & Data Preparation
+### Data Source & Data Preparation :
 Data Source:
 Data was uploaded to Google BigQuery via Google Cloud Console
 SQL was used to validate and explore data (SELECT * FROM table)
@@ -81,7 +81,7 @@ Cleaning either in BigQuery (SQL) or Power Query
 
 -------
 
-### Steps Followed
+### Steps Followed :-
 -Loaded dataset from Google BigQuery into Power BI
 -Opened Power Query Editor to validate:
 -Column quality
@@ -102,14 +102,12 @@ Cleaning either in BigQuery (SQL) or Power Query
 
 ----
 
-### DAX Measures & Calculations
+### DAX Measures & Calculations :
 
 
-Average Price per SQM:
-Average Price SQM = AVERAGE(Housing[sqm_price])
+- Average Price SQM = AVERAGE(Housing[sqm_price])
 
-Last 12 Months Sales:
-Last 12 Month Sales =
+- Last 12 Month Sales =
 CALCULATE(
     SUM(Housing[purchase_price]),
     DATESINPERIOD(Housing[date], MAX(Housing[date]), -12, MONTH)
@@ -118,8 +116,7 @@ CALCULATE(
 
 Median Sales Price Change
 (Median comparison logic using MEDIANX for current vs previous year)
-Median Sales Price change = 
-
+- Median Sales Price change = 
 var CurrMedianPrice = MEDIANX(FILTER('Housing',YEAR('Housing'[date]) = YEAR(max('Housing'[date].[Date]))) , 'Housing'[purchase_price])
 Var PrevMedianPrice = MEDIANX(FILTER('Housing',YEAR('Housing'[date]) = YEAR(MAX('Housing'[date].[Date]))-1), 'Housing'[purchase_price])
 return 
@@ -130,27 +127,26 @@ return
 
 
 
-Offer to SQM Ratio:
-Offer to SQM Ratio = DIVIDE(SUM(Housing[Offer Price]), SUM(Housing[sqm]))
 
-Sales by Region:
-Sales by Region =
+- Offer to SQM Ratio = DIVIDE(SUM(Housing[Offer Price]), SUM(Housing[sqm]))
+
+
+- Sales by Region =
 CALCULATE(
     SUM(Housing[purchase_price]),
     ALLEXCEPT(Housing, Housing[region])
 )
 
-Total YTD Sales:
-TotalYTD Sales =
+
+- TotalYTD Sales =
 TOTALYTD(SUM(Housing[purchase_price]), Housing[date])
 ![ytd](https://github.com/user-attachments/assets/2dcc159e-7930-43ed-b7e8-7715a25608ec)
 
 
-Units Sold (Latest Period):
+- Units Sold (Latest Period):
 DISTINCTCOUNT based on latest year & quarter
 
-Year-over-Year Growth
-YOY Sales Growth =
+- YOY Sales Growth =
 (CurrYearSales - PrevYearSales) / PrevYearSales
 
 ![yoy](https://github.com/user-attachments/assets/e92a20ec-9ecf-4663-8d64-4e0b734ead05)
@@ -158,13 +154,13 @@ YOY Sales Growth =
 
 ---
 
-##Snapshot of Dashboard (Power BI Service):
+## Snapshot of Dashboard (Power BI Service):
 
 ![pbi](https://github.com/user-attachments/assets/fbd7d5e7-846d-4112-83cc-dddb9d8000bf)
 
 
 
-### Insights
+### Insights :
 
 #### Economic Indicators by House Type:
 - Farmhouses show the highest mortgage yield (~4.6%), along with slightly higher inflation and interest values.
@@ -279,12 +275,13 @@ Missing economic data was handled to maintain accuracy
 
 ----
 
-## Tools & Technologies Used
+## Tools & Technologies Used :
 - Power BI Desktop – Data visualization & dashboard creation
 - Power Query Editor – Data transformation & cleaning
 - DAX (Data Analysis Expressions) – Calculations & measures
 - Google BigQuery – Cloud data warehouse
 - Google Cloud Platform (GCP) – Data storage & processing
+- MS SQL Server
 
 ---
 
