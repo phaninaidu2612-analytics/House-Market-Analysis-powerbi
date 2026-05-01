@@ -287,9 +287,17 @@ Missing economic data was handled to maintain accuracy
 
 ## Conclusion:
 
-This dashboard provides a comprehensive view of the housing market by combining transactional and economic data. 
-It enables users to:
-Track sales trends
-Compare regional performance
-Understand pricing dynamics
-Make data-driven investment decisions.
+This dashboard delivers a comprehensive analysis of the housing market by integrating transactional data with key economic indicators, enabling a deeper understanding of price behavior, regional performance, and market trends.
+
+The analysis reveals that region, property age, and sales type are critical drivers influencing housing prices and overall market activity. High-performing regions such as Zealand and Jutland dominate transaction volumes, while newer properties consistently command higher prices, highlighting strong buyer preference for modern housing.
+
+Additionally, shifting trends in sales types—such as the growth in auction-based transactions and decline in traditional sales—indicate evolving market dynamics and potential changes in buyer behavior and affordability. Economic factors like inflation and mortgage yields further reinforce their influence on pricing and investment decisions.
+
+Overall, this solution enables stakeholders to:
+
+- Identify high-growth regions and investment opportunities
+- Understand pricing drivers and property valuation patterns
+- Monitor market trends and performance over time
+- Make data-driven real estate and investment decisions
+
+This project demonstrates how combining data modeling, DAX calculations, and visual analytics can transform complex housing data into meaningful business insights.
